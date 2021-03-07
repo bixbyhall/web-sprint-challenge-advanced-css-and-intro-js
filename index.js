@@ -245,8 +245,29 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
+function getInitYear(artist) {
+  let years = artist.years;
+  let output = years.split(' ');
+  output.splice(1, 1);
+  let initYear = parseInt(output[0]);
+  return initYear;
+}
+
+function getFinYear(artist) {
+  let years = artist.years;
+  let output = years.split(' ');
+  output.splice(1, 1);
+  let finYear = parseInt(output[1]);
+  return finYear;
+}
 function get20s(array){
-  /*Your Code Here*/
+  let output = [];
+  for (let i in array) {
+    if (getInitYear(array[i]) > 1899 && getFinYear(array[i]) < 2000) {
+      output.push(array[i].name);
+    }
+  }
+  return output;
 }
 
 
@@ -260,8 +281,9 @@ function get20s(array){
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/){
-   /*Your Code Here*/
+function removeArtist(array, index){
+  array.splice(index, 1);
+  return array.length;
 }
    
 
@@ -281,9 +303,18 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/){
-    /*Your Code Here*/
+function addArtist(array){
+  const newObject = {
+    id: 20,
+    name: 'Samuel Hall',
+    years: '2000 - 2021',
+    genre: 'Web Design',
+    nationality: 'Irish',
+    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis dolor sit amet velit consectetur volutpat. Morbi ac. '
   }
+  array.push(newObject);
+  return array;
+}
 
   
 

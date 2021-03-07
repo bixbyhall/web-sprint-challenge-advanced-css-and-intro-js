@@ -208,4 +208,18 @@ const artists = [
 // Task 2:
 
 artists[8].name = "Vincent van Gogh";
-console.log(artists[8].name); 
+
+function addArtist(array){
+    const newObject = {
+      id: 20,
+      name: 'Samuel Hall',
+      years: '2000 - 2021',
+      genre: 'Web Design',
+      nationality: 'Irish',
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis dolor sit amet velit consectetur volutpat. Morbi ac. '
+    }
+    array.push(newObject);
+    return array;
+}
+
+  console.log(addArtist(artists));
